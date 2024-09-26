@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Page from "./dashboard/page";
+import Page from "./pages/dashboard/page";
 import { Server } from "miragejs";
 import { mockEmployees } from "./mocks/mock-employees";
 new Server({

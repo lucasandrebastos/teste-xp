@@ -1,28 +1,16 @@
 "use client";
 
-import Header from "../components/Header";
-
-import Table from "../components/Table";
 import { useEffect, useState } from "react";
-import { mockEmployees } from "../mocks/mock-employees";
+import Header from "../../components/Header/Header";
 
-export interface Employee {
-  avatar: string;
-  employee: string;
-  mail: string;
-  lastLogin: string;
-  department: string;
-  isActive: boolean;
-}
+import Table from "../../components/Table/Table";
+import getEmployees from "../../services/employees";
+import { Employee } from "../../types/Employee";
 
 export default function Page() {
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState(Array<Employee>);
   useEffect(() => {
-    fetch("/api/employees")
-      .then((res) => res.json())
-      .then((json) => {
-        setEmployees(json);
-      });
+    getEmployees(setEmployees);
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Avatar from "./Avatar";
-import Logo from "../../public/saturno-logo-1.svg";
-import Navigation from "./Navigation";
+import Logo from "../../../public/saturno-logo-1.svg";
+import Navigation from "../Navigation";
 
 export default function Header() {
   return (
