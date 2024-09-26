@@ -4,6 +4,7 @@ import Header from "../components/Header";
 
 import Table from "../components/Table";
 import { useEffect, useState } from "react";
+import { mockEmployees } from "../mocks/mock-employees";
 
 export interface Employee {
   avatar: string;
@@ -15,14 +16,15 @@ export interface Employee {
 }
 
 export default function Page() {
-  const [employees, setEmployees] = useState(Array<Employee>);
+  const [employees, setEmployees] = useState([]);
   useEffect(() => {
     fetch("/api/employees")
-      .then((response) => response.json())
-      .then((json) => setEmployees(json));
+      .then((res) => res.json())
+      .then((json) => {
+        setEmployees(json);
+      });
   }, []);
 
-  console.log("employees", employees);
   return (
     <>
       <Header />
