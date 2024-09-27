@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowRightToLine,
 } from "lucide-react";
+import { Button } from "@mui/material";
 
 interface FilterProps {
   setDataFiltered: (employees: Employee[]) => void;
@@ -94,7 +95,7 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
 
   return (
     <>
-      <form className="grid grid-cols-3 grid-rows-3 gap-4 my-3">
+      <form className="grid grid-cols-3 grid-rows-2 gap-4 my-3">
         <label className="flex flex-col text-xs font-semibold gap-1">
           {" "}
           Employee
@@ -109,28 +110,31 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
           />
         </label>
 
-        <div className="border rounded-md text-xs">
-          <label>From: </label>
-
-          <input
-            className="font-normal"
-            ref={inputStartDate}
-            onChange={handleChange}
-            type="date"
-            name="From"
-            id=""
-          />
+        <div className=" text-xs h-6 ">
+          <label className="flex flex-col text-xs font-semibold gap-1">
+            From:{" "}
+            <input
+              className="border rounded-md text-xs p-1 font-normal"
+              ref={inputStartDate}
+              onChange={handleChange}
+              type="date"
+              name="From"
+              id=""
+            />
+          </label>
         </div>
-        <div className="border rounded-md text-xs">
-          <label>To: </label>
-          <input
-            className="  font-normal"
-            ref={inputEndDate}
-            onChange={handleChange}
-            type="date"
-            name="To"
-            id=""
-          />
+        <div className=" text-xs h-6">
+          <label className="flex flex-col text-xs font-semibold gap-1">
+            To:{" "}
+            <input
+              className="border rounded-md text-xs p-1 font-normal"
+              ref={inputEndDate}
+              onChange={handleChange}
+              type="date"
+              name="To"
+              id=""
+            />{" "}
+          </label>
         </div>
 
         <label className="flex flex-col text-xs font-semibold gap-1">
@@ -164,9 +168,18 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
             <option value="false">Inactive</option>
           </select>
         </label>
-        <button onClick={clearForm} type="button">
-          Limpar
-        </button>
+
+        <div className="flex justify-end items-end">
+          <Button
+            sx={{ height: 20 }}
+            onClick={clearForm}
+            variant="outlined"
+            size="medium"
+            color="success"
+          >
+            Limpar
+          </Button>
+        </div>
       </form>
     </>
   );
