@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Avatar from "./Avatar";
 import Logo from "../../../public/saturno-logo-1.svg";
-import Navigation from "../Navigation";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
 export default function Header() {
   return (
@@ -10,7 +10,7 @@ export default function Header() {
         <a className="" href={"#"}>
           <Image color="white" width={50} height={50} src={Logo} alt="logo" />
         </a>
-        <Navigation />
+        <NavigationBar />
       </div>
 
       <div className="flex items-center">

@@ -1,4 +1,4 @@
-export default function Navigation() {
+export default function NavigationBar() {
   const navigation = [
     { name: "dashboard", href: "#", current: true },
     { name: "teams", href: "#", current: false },
@@ -7,12 +7,12 @@ export default function Navigation() {
   ];
 
   return (
-    <div className={`mx-20 gap-y-8`}>
+    <div className={`flex mx-20 gap-16`}>
       {navigation.map((item) => {
         return (
           <a
             key={item.name}
-            className={`py-1 px-4  font-medium text-white ${
+            className={`font-medium text-tbase ${
               item.current && " text-indigo-950  "
             } `}
             href={item.href}

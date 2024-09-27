@@ -69,6 +69,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+
         <Table title="Employees" content={employees} />
       </div>
     </>
