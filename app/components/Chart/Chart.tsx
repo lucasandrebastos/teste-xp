@@ -1,4 +1,5 @@
 import { Employee } from "@/app/types/Employee";
+import { useMemo } from "react";
 import { Chart as PieChart } from "react-google-charts";
 
 interface ChartProps {
@@ -10,31 +11,32 @@ export default function Chart({ content }: ChartProps) {
     [key: string]: number;
   }
 
-  const departmentCount = content.reduce<DepartmentCount>((acc, employee) => {
-    const formattedDepartment = employee.department
-      .toLowerCase()
-      .replace(/\s+/g, "");
+  const data = useMemo(() => {
+    const departmentCount = content.reduce<DepartmentCount>((acc, employee) => {
+      const formattedDepartment = employee.department
+        .toLowerCase()
+        .replace(/\s+/g, "");
 
-    if (acc[formattedDepartment]) {
-      acc[formattedDepartment]++;
-    } else {
-      acc[formattedDepartment] = 1;
-    }
+      if (acc[formattedDepartment]) {
+        acc[formattedDepartment]++;
+      } else {
+        acc[formattedDepartment] = 1;
+      }
 
-    return acc;
-  }, {});
+      return acc;
+    }, {});
 
-  console.log();
-  const data = [
-    ["Departments", "Employees by department"],
-    ["Finance", departmentCount.finance],
-    ["HR", departmentCount.humanresources],
-    ["R&D", departmentCount.researchanddevelopment],
-    ["Marketing", departmentCount.marketing],
-    ["Operations", departmentCount.operations],
-    ["IT", departmentCount.it],
-    ["Sales", departmentCount.sales],
-  ];
+    return [
+      ["Departments", "Employees by department"],
+      ["Finance", departmentCount.finance],
+      ["HR", departmentCount.humanresources],
+      ["R&D", departmentCount.researchanddevelopment],
+      ["Marketing", departmentCount.marketing],
+      ["Operations", departmentCount.operations],
+      ["IT", departmentCount.it],
+      ["Sales", departmentCount.sales],
+    ];
+  }, [content]);
 
   const options = {
     legend: {
