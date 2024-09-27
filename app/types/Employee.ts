@@ -1,0 +1,8 @@
+export type Employee = {
+  avatar: string;
+  employee: string;
+  mail: string;
+  lastLogin: string;
+  department: string;
+  isActive: boolean;
+};

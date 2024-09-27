@@ -1,4 +1,4 @@
-export const employees = [
+export const mockEmployees = [
   {
     avatar: "https://robohash.org/animieoshic.png?size=50x50&set=set1",
     employee: "Maryellen State",
