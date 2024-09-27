@@ -3,5 +3,5 @@ export default function MainContentContainer({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="flex gap-8 ">{children}</div>;
+  return <div className="flex gap-8">{children}</div>;
 }

@@ -1,14 +1,19 @@
 "use client";
-import { useState } from "react";
-import Page from "./dashboard/page";
-import { Server } from "miragejs";
-import { mockEmployees } from "./mocks/mock-employees";
+
+import MainContentContainer from "./components/MainContentContainer";
 
 export default function Home() {
-  const [theme, setTheme] = useState("black");
   return (
     <>
-      <main className={`h-screen bg-bgprimary p-6 theme-${theme}`}></main>
+      <MainContentContainer>
+        <div className="flex flex-col ">
+          <h1 className="font-bold text-6xl mt-9">
+            Bem vindo ao Voyager Backoffice!
+          </h1>
+
+          <h2 className="font-bold text-5xl mt-9">Visite nossa dashboard!</h2>
+        </div>
+      </MainContentContainer>
     </>
   );
 }

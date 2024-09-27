@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`p-7 ${inter.className}`}>
         <Header />
+        {/* {url_atual} */}
         <BreadCrumbs />
         {children}
       </body>

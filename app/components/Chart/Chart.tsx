@@ -6,11 +6,10 @@ interface ChartProps {
   content: Employee[];
 }
 
+interface DepartmentCount {
+  [key: string]: number;
+}
 export default function Chart({ content }: ChartProps) {
-  interface DepartmentCount {
-    [key: string]: number;
-  }
-
   const data = useMemo(() => {
     const departmentCount = content.reduce<DepartmentCount>((acc, employee) => {
       const formattedDepartment = employee.department
