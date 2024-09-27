@@ -3,7 +3,6 @@ import { usePathname } from "next/navigation";
 
 export default function BreadCrumbs() {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     pathname === "/dashboard" && (
       <div className="text-secondary m-5">
