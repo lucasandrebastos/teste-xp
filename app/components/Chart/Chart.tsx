@@ -6,15 +6,34 @@ interface ChartProps {
 }
 
 export default function Chart({ content }: ChartProps) {
+  interface DepartmentCount {
+    [key: string]: number;
+  }
+
+  const departmentCount = content.reduce<DepartmentCount>((acc, employee) => {
+    const formattedDepartment = employee.department
+      .toLowerCase()
+      .replace(/\s+/g, "");
+
+    if (acc[formattedDepartment]) {
+      acc[formattedDepartment]++;
+    } else {
+      acc[formattedDepartment] = 1;
+    }
+
+    return acc;
+  }, {});
+
+  console.log();
   const data = [
-    ["Task", "Hours per Day"],
-    ["Finance", 9],
-    ["HR", 2],
-    ["R&D", 2],
-    ["Marketing", 2],
-    ["Operations", 7],
-    ["IT", 7],
-    ["Sales", 7],
+    ["Departments", "Employees by department"],
+    ["Finance", departmentCount.finance],
+    ["HR", departmentCount.humanresources],
+    ["R&D", departmentCount.researchanddevelopment],
+    ["Marketing", departmentCount.marketing],
+    ["Operations", departmentCount.operations],
+    ["IT", departmentCount.it],
+    ["Sales", departmentCount.sales],
   ];
 
   const options = {
