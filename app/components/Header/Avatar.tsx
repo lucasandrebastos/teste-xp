@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AvatarCard from "./AvatarCard";
+import { CircleUserRound } from "lucide-react";
 
 export default function Avatar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,8 +9,10 @@ export default function Avatar() {
       <button
         type="button"
         onClick={(e) => setIsOpen(!isOpen)}
-        className="rounded-full w-10 h-10 bg-black"
-      ></button>
+        className="rounded-full bg-bgprimary"
+      >
+        <CircleUserRound width={40} height={40} />
+      </button>
       {isOpen && (
         <div>
           <AvatarCard />

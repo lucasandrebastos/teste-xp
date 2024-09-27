@@ -12,7 +12,7 @@ const config: Config = {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
         tbase: "var(--color-text-base)",
-        vgray: "var(--color-light-gray",
+        vgray: "var(--color-light-gray)",
         vgreen: "var(--color-green)",
         vblue: "var(--color-blue)",
         vred: "var(--color-red)",
