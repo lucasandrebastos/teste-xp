@@ -10,18 +10,18 @@ import { Button } from "@mui/material";
 
 interface FilterProps {
   setDataFiltered: (employees: Employee[]) => void;
-  content: Employee[];
+  rawData: Employee[];
 }
 
-export default function Filter({ setDataFiltered, content }: FilterProps) {
+export default function Filter({ setDataFiltered, rawData }: FilterProps) {
   const inputEmployee = useRef<HTMLInputElement>(null);
   const inputDepartment = useRef<HTMLInputElement>(null);
   const inputStartDate = useRef<HTMLInputElement>(null);
   const inputEndDate = useRef<HTMLInputElement>(null);
   const inputStatus = useRef<HTMLSelectElement>(null);
   useEffect(() => {
-    setDataFiltered(content);
-  }, [content]);
+    setDataFiltered(rawData);
+  }, [rawData]);
 
   function handleChange() {
     const filters = {
@@ -31,23 +31,23 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
       inputEndDate: inputEndDate.current?.value,
       isActive: inputStatus.current?.value,
     };
-    let dadosFiltrados: Employee[] = content;
+    let dataFiltered: Employee[] = rawData;
     if (filters.employee) {
-      dadosFiltrados = dadosFiltrados.filter(
+      dataFiltered = dataFiltered.filter(
         (e) =>
           filters.employee &&
           e.employee.toLowerCase().includes(filters.employee.toLowerCase())
       );
     }
     if (filters.department) {
-      dadosFiltrados = dadosFiltrados.filter(
+      dataFiltered = dataFiltered.filter(
         (e) =>
           filters.department &&
           e.department.toLowerCase().includes(filters.department.toLowerCase())
       );
     }
     if (filters.inputStartDate) {
-      dadosFiltrados = dadosFiltrados.filter(
+      dataFiltered = dataFiltered.filter(
         (e) =>
           filters.inputStartDate &&
           new Date(e.lastLogin).getTime() >
@@ -55,7 +55,7 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
       );
     }
     if (filters.inputEndDate) {
-      dadosFiltrados = dadosFiltrados.filter(
+      dataFiltered = dataFiltered.filter(
         (e) =>
           filters.inputEndDate &&
           new Date(e.lastLogin).getTime() <
@@ -64,16 +64,14 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
     }
 
     if (filters.isActive) {
-      dadosFiltrados = dadosFiltrados.filter(
+      dataFiltered = dataFiltered.filter(
         (e) => filters.isActive == e.isActive.toString()
       );
     }
-    setDataFiltered(dadosFiltrados);
-    console.log(filters);
+    setDataFiltered(dataFiltered);
   }
 
   function clearForm() {
-    console.log("chamou clearform", inputDepartment.current?.value);
     if (inputEmployee.current) {
       inputEmployee.current.value = "";
     }
@@ -90,7 +88,7 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
       inputStatus.current.value = "";
     }
 
-    setDataFiltered(content);
+    setDataFiltered(rawData);
   }
 
   return (
