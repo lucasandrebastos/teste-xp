@@ -108,9 +108,6 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
             className="border rounded-md text-xs p-1 font-normal"
           />
         </label>
-        {/* <label className="flex flex-col text-xs font-semibold  ">
-          Last Login
-        </label> */}
 
         <div className="border rounded-md text-xs">
           <label>From: </label>
@@ -171,31 +168,6 @@ export default function Filter({ setDataFiltered, content }: FilterProps) {
           Limpar
         </button>
       </form>
-      <div className="flex justify-between">
-        <div>
-          <span>Rows per page</span>
-          <select name="" id="">
-            2
-          </select>
-        </div>
-        <div>
-          <span>1-5 of 13</span>
-        </div>
-        <div className="grid grid-cols-4 gap-2">
-          <button className="border rounded-full p-1" type="button">
-            <ArrowLeftToLine width={12} height={12} />
-          </button>
-          <button className="border rounded-full p-1" type="button">
-            <ArrowLeft width={12} height={12} />
-          </button>
-          <button className="border rounded-full p-1" type="button">
-            <ArrowRight width={12} height={12} />
-          </button>
-          <button className="border rounded-full p-1" type="button">
-            <ArrowRightToLine width={12} height={12} />
-          </button>
-        </div>
-      </div>
     </>
   );
 }

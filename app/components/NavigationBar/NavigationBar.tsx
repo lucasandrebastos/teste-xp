@@ -1,9 +1,9 @@
 export default function NavigationBar() {
   const navigation = [
-    { name: "dashboard", href: "#", current: true },
-    { name: "teams", href: "#", current: false },
-    { name: "project", href: "#", current: false },
-    { name: "calendar", href: "#", current: false },
+    { name: "dashboard", href: "dashboard", current: true },
+    { name: "teams", href: "teams", current: false },
+    { name: "project", href: "project", current: false },
+    { name: "calendar", href: "calendar", current: false },
   ];
 
   return (
